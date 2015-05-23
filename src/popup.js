@@ -146,11 +146,37 @@ storage.get(function(items){
 
   for (var i = 0; i < count; i++) {
     var list = document.createElement("li");
-    list.innerHTML= createLinkHTML(syncItems[i], syncItems[i].key);
-    links.appendChild(list);
-    //Attach event listeners to the newly created link for the remove button click
     
-    list.getElementsByClassName("removeBtn")[0].addEventListener("click", removeLink, false);
+    var now = Date.now();
+    //var thirtyDays = 1000 * 3600 * 24 * 30;
+    var thirtyDays = 1000 * 30;
+    var daysDiff = now - syncItems[i].timestamp;
+    console.log("now", now, "thirtyDays", thirtyDays, "daysDiff", daysDiff);
+    
+    console.log(syncItems[i]);
+    console.log("timestamp", syncItems[i].timestamp);
+    
+    if (daysDiff > thirtyDays)
+    {
+        //DELETE
+        storage.remove(syncItems[i].key);
+//        storage.remove(syncItems[i].key, function(){
+//        count--; // Reduce Count
+//        storage.set({"count": count}); //Update count in the sync storage
+//        //message("Removed Link");
+//        console.log("Removed Link with key: "+syncItems[i].key+"");
+//            chrome.browserAction.setBadgeText({"text": badgeText(count)});
+//      });
+    }
+    else
+    {
+        list.innerHTML= createLinkHTML(syncItems[i], syncItems[i].key);
+        links.appendChild(list);
+        //Attach event listeners to the newly created link for the remove button click
+    
+        list.getElementsByClassName("removeBtn")[0].addEventListener("click", removeLink, false);
+    }
+    
   }
   message("Finished!");
   chrome.browserAction.setBadgeText({"text": badgeText(count)});
