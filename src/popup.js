@@ -159,14 +159,14 @@ storage.get(function(items){
     if (daysDiff > thirtyDays)
     {
         //DELETE
-        storage.remove(syncItems[i].key);
-//        storage.remove(syncItems[i].key, function(){
-//        count--; // Reduce Count
-//        storage.set({"count": count}); //Update count in the sync storage
-//        //message("Removed Link");
-//        console.log("Removed Link with key: "+syncItems[i].key+"");
-//            chrome.browserAction.setBadgeText({"text": badgeText(count)});
-//      });
+        //storage.remove(syncItems[i].key);
+        storage.remove(syncItems[i].key, function(){
+        count--; // Reduce Count
+        storage.set({"count": count}); //Update count in the sync storage
+        //message("Removed Link");
+        //console.log("Removed Link with key: "+syncItems[i].key+"");
+            chrome.browserAction.setBadgeText({"text": badgeText(count)});
+      });
     }
     else
     {
