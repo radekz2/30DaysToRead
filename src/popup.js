@@ -1,5 +1,7 @@
 /**
 
+30 Days to Read is based on project ReadLater.
+
 ReadLater 1.0, a Google Chrome extension which enables a user to save the links for later reading.
 These links are automatically synced across all the chrome browsers on which the user is logged in.
 
