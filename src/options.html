@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>30 Days to Read</title></head>
+<body>
+
+Timeout:
+<select id="purge_time">
+ <option value="25920000">30 Days</option>
+ <option value="12960000">15 Days</option>
+ <option value="6480000">7 Days</option>
+ <option value="30000">30 Seconds</option>
+</select>
+
+<label>
+    <input type="checkbox" id="purge" checked="checked">
+  Yes, auto purge old links.
+</label>
+
+<div id="status"></div>
+<button id="save">Save</button>
+
+<script src="options.js"></script>
+</body>
+</html>

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "manifest_version": 2,
   "description": "Links go away after 30 days",
+  "options_page": "options.html",
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
